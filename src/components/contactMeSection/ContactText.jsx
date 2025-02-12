@@ -3,9 +3,8 @@ const ContactText = () => {
     <div>
       <h2 className="text-orange text-3xl mb-4">Get In Touch</h2>
       <p>
-        Feel free to reach out if you’d like to collaborate
-        <br />
-        you are just a few clicks away!
+        Let's create something amazing together! <br /> You're just a message
+        away from making it happen!
       </p>
     </div>
   );

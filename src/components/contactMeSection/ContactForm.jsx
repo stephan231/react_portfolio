@@ -1,43 +1,70 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState("");
-  const handleName = (e) => {
-    setName(e.target.value);
-  };
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const handleMessage = (e) => {
-    setMessage(e.target.value);
-  };
   const form = useRef();
+
+  const handleName = (e) => setName(e.target.value);
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handleMessage = (e) => setMessage(e.target.value);
+
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
-      .sendForm("service_ko3hmpt", "template_ahbmmqd", form.current, {
-        publicKey: "I6HAT5mUZH7WHabGE",
-      })
+      .sendForm(
+        "service_6ysrurt",
+        "template_xdvvsrr",
+        form.current,
+        "5nfAuJDeiyqWT-n7N"
+      )
       .then(
         () => {
-          setEmail("");
           setName("");
+          setEmail("");
           setMessage("");
-          setSuccess("Message Sent Succesfully");
+          setSuccess("Message Sent Successfully");
+
+          // ✅ Show success toast
+          toast.success("Message Sent Successfully!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
         },
         (error) => {
-          console.log("FAILED...", error.text);
+          console.error("FAILED...", error.text);
+
+          // ❌ Show error toast
+          toast.error("❌ Message Failed to Send. Try Again!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
         }
       );
   };
 
   return (
     <div>
-      <p className="text-cyan">{success}</p>
+      {success && <p className="text-cyan">{success}</p>}
       <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-4">
         <input
           type="text"
@@ -58,13 +85,11 @@ const ContactForm = () => {
           onChange={handleEmail}
         />
         <textarea
-          type="text"
           name="message"
-          rows="9"
-          cols="50"
+          rows="5"
           placeholder="Message"
           required
-          className=" rounded-lg bg-lightBrown p-2"
+          className="rounded-lg bg-lightBrown p-2"
           value={message}
           onChange={handleMessage}
         />
@@ -75,6 +100,9 @@ const ContactForm = () => {
           Send
         </button>
       </form>
+
+      {/* ✅ Add ToastContainer Here */}
+      <ToastContainer />
     </div>
   );
 };

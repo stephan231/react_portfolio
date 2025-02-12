@@ -5,32 +5,32 @@ import { fadeIn } from "../../framerMotion/variants";
 
 const projects = [
   {
-    name: "Vacation of Africa",
-    year: "Mar2022",
+    name: "MERN chat app",
+    year: "JAN2023",
     align: "right",
-    image: "../../public/images/website-img-1.jpg",
-    link: "#",
+    image: "./images/chat.jpg",
+    link: "https://github.com/stephan231/Mern_chat-app",
   },
   {
-    name: "Moola App",
-    year: "Sept2022",
+    name: "Ecommerce API",
+    year: "MAR2023",
     align: "left",
-    image: "../../public/images/website-img-2.webp",
-    link: "#",
+    image: "./images/ecommerce.jpg",
+    link: "https://github.com/stephan231/Ecommerce_mern",
   },
   {
-    name: "Tourzania",
-    year: "Jan2023",
+    name: "GPT-3",
+    year: "SEPT2023",
     align: "right",
-    image: "../../public/images/website-img-3.jpg",
-    link: "#",
+    image: "./images/gpt.jpg",
+    link: "https://github.com/stephan231/GPT_3-react",
   },
   {
-    name: "Bank of Luck",
-    year: "May2024",
+    name: "Restaurant App",
+    year: "DEC2024",
     align: "left",
-    image: "../../public/images/website-img-4.jpg",
-    link: "#",
+    image: "./images/res.jpg",
+    link: "https://github.com/stephan231/react_restaurant",
   },
 ];
 
